@@ -53,7 +53,17 @@ func (g *Aquarium) Layout(outsideWidth, outsideHeight int) (screenWidth, screenH
 func main() {
 	ebiten.SetWindowSize(breite, höhe)
 	ebiten.SetWindowTitle("Hello, Yuuka and Aika!")
-	fisch1 := NeueFigur(geladeneBuilder["yuukafisch.png"])
+	fisch1 := Figur{
+		bild: Bild{
+			bild:         geladeneBuilder["yuukafisch.png"],
+			bildOptionen: nil,
+			entfernung:   0,
+		},
+		verhalten: &ImmerGeradeaus{
+			x: 1000,
+			y: 100,
+		},
+	}
 	fisch2 := Figur{
 		bild:      Bild{
 			bild:         geladeneBuilder["yuukas_geburtstagsfisch.png"],

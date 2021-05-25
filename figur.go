@@ -1,7 +1,6 @@
 package main
 
 import (
-	"github.com/hajimehoshi/ebiten"
 	. "time"
 )
 
@@ -14,20 +13,6 @@ type BildElement interface {
 type Figur struct {
 	bild Bild
 	verhalten Verhalten
-}
-
-func NeueFigur(bild *ebiten.Image) Figur {
-	return Figur{
-		bild: Bild{
-			bild:         bild,
-			bildOptionen: nil,
-			entfernung:   0,
-		},
-		verhalten: &ImmerGeradeaus{
-			x: 1000,
-			y: 100,
-		},
-	}
 }
 
 func (figur *Figur) ZeitVergangen(vergangen Duration) (bool, []BildElement) {
