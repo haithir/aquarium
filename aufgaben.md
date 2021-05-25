@@ -43,19 +43,19 @@ Methode `Fill`, die alles mit einer gewünschten Farbe füllt.
    `FrameCounter` in `framecounter.go` abschauen.
    Die `ZeitVergangen` Methode bleibt dabei leer, es sei denn Du möchtest
    zum einfarbigen, statischen Hintergrund noch dynamische Effekte hinzufügen.
-   Den neuen Typ mit Methoden packst Du am besten in ein neues File 
+   Den neuen Typ mit Methoden packst Du am besten in eine neue Datei 
    `hintergrund.go`.
 - Denk daran, dass der Hintergrund zuerst gemalt werden muß. 
 
 ## 4) Lebendige Fische
 
 Die Fische sehen noch ziemlich steif aus. Sie schwimmen zwar durch das Wasser,
-aber ohne sich auch nur im geringsten zu bewegen. Erstelle eine Animation, die
+aber ohne sich auch nur im geringsten zu verändern. Erstelle eine Animation, die
 endlos abgespielt wird.
 
 Tipp:
 - Zuerst mußt Du Bilder erstellen, die Du wie ein Daumenkino abspielen kannst.
-- Dazu mußt Du in `ZeitVergangen` nicht nur den Ort ändern, sondern auch das
+- Dann mußt Du in `ZeitVergangen` nicht nur den Ort ändern, sondern auch das
   benutzte Bild.  
 - Du kannst die Bilder abwechselnd vorwärts und rückwärts abspielen, z.B.
   1, 2, 3, 2, 1, 2, 3, ...
@@ -75,12 +75,14 @@ das Allerschlimmste ist, das Ergebnis sieht auf jedem Computer anders aus, denn
 die sogenannte Frame Rate (also wieviele Bilder pro Sekunde dargestellt werden)
 hängt von der Leistungsfähigkeit des Rechners ab.
 
-Das Problem ist ähnlich zu lösen wie die Geschwindigkeit der Animationen.
+Mache die Fische unterschiedlich schnell und unabhängig von der Frame Rate.
+
+Das Problem läßt sich ähnlich lösen wie die Geschwindigkeit der Animationen.
 
 Tipp:
 Da es ein sehr allgemeines Problem ist, das sowohl für die Animation als auch
 für die Bewegung der Figuren und evt. später noch anderswo gelöst werden muss,
 und es auch schon in zwei Typen `ImmerGeradeaus` und `HinUndHer` auftritt,
 lohnt es sich darüber nachzudenken, ob und wie die Lösung sich in einem
-separaten Typ kapseln läßt (z.B. names `Geschwindigkeit`).
+separaten Typ kapseln läßt (z.B. namens `Geschwindigkeit`).
 
