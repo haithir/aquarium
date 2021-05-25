@@ -5,19 +5,19 @@ import (
 	. "time"
 )
 
-type AbstrakteFigur interface {
+type BildElement interface {
 	// return: bool=true zerstöre, array neuer Figuren oder nil
-	Bewege(vergangen Duration) (bool, []AbstrakteFigur)
+	ZeitVergangen(vergangen Duration) (bool, []BildElement)
 	AlleMaler() []Maler
 }
 
-type BewegteFigur struct {
+type Figur struct {
 	bild Bild
 	verhalten Verhalten
 }
 
-func NeueFigur(bild *ebiten.Image) BewegteFigur {
-	return BewegteFigur{
+func NeueFigur(bild *ebiten.Image) Figur {
+	return Figur{
 		bild: Bild{
 			bild:         bild,
 			bildOptionen: nil,
@@ -30,10 +30,10 @@ func NeueFigur(bild *ebiten.Image) BewegteFigur {
 	}
 }
 
-func (figur *BewegteFigur) Bewege(vergangen Duration) (bool, []AbstrakteFigur) {
-	return figur.verhalten.Bewege(figur, vergangen)
+func (figur *Figur) ZeitVergangen(vergangen Duration) (bool, []BildElement) {
+	return figur.verhalten.ZeitVergangen(figur, vergangen)
 }
 
-func (figur *BewegteFigur) AlleMaler() []Maler {
+func (figur *Figur) AlleMaler() []Maler {
 	return  []Maler{&figur.bild}
 }

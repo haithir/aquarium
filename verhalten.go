@@ -6,7 +6,7 @@ import (
 )
 
 type Verhalten interface {
-	Bewege(figur *BewegteFigur, vergangen Duration) (bool, []AbstrakteFigur)
+	ZeitVergangen(figur *Figur, vergangen Duration) (bool, []BildElement)
 }
 
 type ImmerGeradeaus struct {
@@ -14,7 +14,7 @@ type ImmerGeradeaus struct {
 	y int
 	rechtslang bool
 }
-func (verhalten *ImmerGeradeaus) Bewege(figur *BewegteFigur, vergangen Duration) (bool, []AbstrakteFigur) {
+func (verhalten *ImmerGeradeaus) ZeitVergangen(figur *Figur, vergangen Duration) (bool, []BildElement) {
 	if verhalten.rechtslang {
 		verhalten.x++
 		width, _ := figur.bild.bild.Size()

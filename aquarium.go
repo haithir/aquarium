@@ -20,29 +20,29 @@ func init() {
 }
 
 type Aquarium struct{
-	figuren []AbstrakteFigur
+	figuren []BildElement
 	zeitLetztesBild time.Time
 }
 
 func (aquarium *Aquarium) Update() error {
 	vergangen := time.Since(aquarium.zeitLetztesBild)
-	for _, fisch := range aquarium.figuren {
-		fisch.Bewege(vergangen)
+	for _, bildElement := range aquarium.figuren {
+		bildElement.ZeitVergangen(vergangen)
 	}
 	aquarium.zeitLetztesBild = aquarium.zeitLetztesBild.Add(vergangen)
 	return nil
 }
 
 func (aquarium *Aquarium) Draw(bildschirm *ebiten.Image) {
-	bilder := []Maler{}
-	for _, fisch := range aquarium.figuren {
-		bilder = append(bilder, fisch.AlleMaler()...)
+	malerListe := []Maler{}
+	for _, bildElement := range aquarium.figuren {
+		malerListe = append(malerListe, bildElement.AlleMaler()...)
 	}
-	sort.SliceStable(bilder, func(i, j int) bool {
-		return bilder[i].Reihenfolge() < bilder[j].Reihenfolge()
+	sort.SliceStable(malerListe, func(i, j int) bool {
+		return malerListe[i].Reihenfolge() < malerListe[j].Reihenfolge()
 	})
-	for _, bild := range bilder {
-		bild.Male(bildschirm)
+	for _, maler := range malerListe {
+		maler.Male(bildschirm)
 	}
 }
 
@@ -54,7 +54,7 @@ func main() {
 	ebiten.SetWindowSize(breite, höhe)
 	ebiten.SetWindowTitle("Hello, Yuuka and Aika!")
 	fisch1 := NeueFigur(geladeneBuilder["yuukafisch.png"])
-	fisch2 := BewegteFigur{
+	fisch2 := Figur{
 		bild:      Bild{
 			bild:         geladeneBuilder["yuukas_geburtstagsfisch.png"],
 			entfernung:   50,
@@ -67,7 +67,7 @@ func main() {
 	}
 	frameCounter := FrameCounter{}
 	aquarium := Aquarium{
-		figuren: []AbstrakteFigur{
+		figuren: []BildElement{
 			&fisch1,
 			&fisch2,
 			&frameCounter,

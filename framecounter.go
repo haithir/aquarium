@@ -21,7 +21,7 @@ func (*FrameCounter) Reihenfolge() int {
 	return 1000000
 }
 
-func (c *FrameCounter) Bewege(vergangen Duration) (bool, []AbstrakteFigur) {
+func (c *FrameCounter) ZeitVergangen(vergangen Duration) (bool, []BildElement) {
 	c.gezählteZeitDauer += vergangen.Milliseconds()
 	c.frames++
 	if c.gezählteZeitDauer >= 1000 { // 1s
