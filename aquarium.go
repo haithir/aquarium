@@ -10,8 +10,8 @@ import (
 )
 
 func init() {
-	for _,name := range bildNamen {
-		img, _, err := ebitenutil.NewImageFromFile(name)
+	for _, name := range bildNamen {
+		img, _, err := ebitenutil.NewImageFromFile(name, ebiten.FilterDefault)
 		if err != nil {
 			log.Fatal(err)
 		}
@@ -19,12 +19,12 @@ func init() {
 	}
 }
 
-type Aquarium struct{
-	figuren []BildElement
+type Aquarium struct {
+	figuren         []BildElement
 	zeitLetztesBild time.Time
 }
 
-func (aquarium *Aquarium) Update() error {
+func (aquarium *Aquarium) Update(*ebiten.Image) error {
 	vergangen := time.Since(aquarium.zeitLetztesBild)
 	for _, bildElement := range aquarium.figuren {
 		bildElement.ZeitVergangen(vergangen)
@@ -65,9 +65,9 @@ func main() {
 		},
 	}
 	fisch2 := Figur{
-		bild:      Bild{
-			bild:         geladeneBuilder["yuukas_geburtstagsfisch.png"],
-			entfernung:   50,
+		bild: Bild{
+			bild:       geladeneBuilder["yuukas_geburtstagsfisch.png"],
+			entfernung: 50,
 		},
 		verhalten: &ImmerGeradeaus{
 			x:          0,

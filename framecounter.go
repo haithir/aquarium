@@ -9,11 +9,11 @@ import (
 
 type FrameCounter struct {
 	gezählteZeitDauer int64
-	frames int
-	framesPerSecond int
+	frames            int
+	framesPerSecond   int
 }
 
-func (c *FrameCounter) Male(bildschirm *ebiten.Image)  {
+func (c *FrameCounter) Male(bildschirm *ebiten.Image) {
 	ebitenutil.DebugPrintAt(bildschirm, fmt.Sprint("frames per second: ", c.framesPerSecond), 30, 200)
 }
 
@@ -26,7 +26,7 @@ func (c *FrameCounter) ZeitVergangen(vergangen Duration) (bool, []BildElement) {
 	c.frames++
 	if c.gezählteZeitDauer >= 1000 { // 1s
 		c.framesPerSecond = c.frames
-		c.gezählteZeitDauer-= 1000
+		c.gezählteZeitDauer -= 1000
 		c.frames = 0
 	}
 	return false, nil

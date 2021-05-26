@@ -5,7 +5,7 @@ import "github.com/hajimehoshi/ebiten"
 const breite = 2000
 const höhe = 1000
 
-var bildNamen = []string {
+var bildNamen = []string{
 	"yuukafisch.png",
 	"yuukas_geburtstagsfisch.png",
 }

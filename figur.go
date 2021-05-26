@@ -11,7 +11,7 @@ type BildElement interface {
 }
 
 type Figur struct {
-	bild Bild
+	bild      Bild
 	verhalten Verhalten
 }
 
@@ -20,5 +20,5 @@ func (figur *Figur) ZeitVergangen(vergangen Duration) (bool, []BildElement) {
 }
 
 func (figur *Figur) AlleMaler() []Maler {
-	return  []Maler{&figur.bild}
+	return []Maler{&figur.bild}
 }

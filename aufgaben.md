@@ -14,7 +14,7 @@ Füge ein neues Objekt in die Liste ein.
 Jetzt versuche dem Fisch ein anderes Aussehen zu geben.
 
 Tipp: gucke in `global.go` . Dort ist die Liste der Bildernamen. Füge
-Den Bild hinzu.
+Dein Bild hinzu.
 
 ## 2) Der Fisch kann hin und her schwimmen
 
@@ -86,3 +86,34 @@ und es auch schon in zwei Typen `ImmerGeradeaus` und `HinUndHer` auftritt,
 lohnt es sich darüber nachzudenken, ob und wie die Lösung sich in einem
 separaten Typ kapseln läßt (z.B. namens `Geschwindigkeit`).
 
+## 6) Luftblasen
+
+Fisch blubbert beim Schwimmen. Blase ist separates Objekt, steigt auf
+und verschwindet.
+Game Loop anpassen, Objekte entfernen und hinzufügen.
+
+## Pflanzen
+
+Lass animierte Pflanzen wachsen. Sie sind unterschiedlich entfernt, sodass Fische
+hindurch scwimmen, also teilweise davor sind und dahinter versteckt sind.  
+
+## Spielerfisch
+
+Ein Fisch gesteuert durch Tastatur/Maus.
+
+## Ausschnitt
+
+Großes Aquarium, wir sehen nicht alles gleichzeitig. Zwei Koordinatensysteme.
+Der sichtbare Ausschnitt bewegt sich mit dem Spielerfisch mit.
+
+
+## Räume
+
+Betrete ein Höhle oder ein Häuschen und gehe auch wieder heraus.
+Hier sind komplett andere Objekte/Figuren. 
+Jetzt müssen mehrere Elemetlisten verwaltet, oder die eine Liste neu
+aufgebaut werden.
+
+## komplexes Verhalten
+
+Lass die Elemente aufeinander reagieren.

@@ -10,10 +10,11 @@ type Verhalten interface {
 }
 
 type ImmerGeradeaus struct {
-	x int
-	y int
+	x          int
+	y          int
 	rechtslang bool
 }
+
 func (verhalten *ImmerGeradeaus) ZeitVergangen(figur *Figur, vergangen Duration) (bool, []BildElement) {
 	if verhalten.rechtslang {
 		verhalten.x++
@@ -33,4 +34,3 @@ func (verhalten *ImmerGeradeaus) ZeitVergangen(figur *Figur, vergangen Duration)
 	figur.bild.bildOptionen = op
 	return false, nil
 }
-
