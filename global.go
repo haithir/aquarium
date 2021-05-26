@@ -1,6 +1,6 @@
 package main
 
-import "github.com/hajimehoshi/ebiten"
+import "github.com/hajimehoshi/ebiten/v2"
 
 const breite = 2000
 const höhe = 1000

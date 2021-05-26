@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/hajimehoshi/ebiten"
-	"github.com/hajimehoshi/ebiten/ebitenutil"
+	"github.com/hajimehoshi/ebiten/v2"
+	"github.com/hajimehoshi/ebiten/v2/ebitenutil"
 	_ "image/png"
 	"log"
 	"sort"
@@ -11,7 +11,7 @@ import (
 
 func init() {
 	for _, name := range bildNamen {
-		img, _, err := ebitenutil.NewImageFromFile(name, ebiten.FilterDefault)
+		img, _, err := ebitenutil.NewImageFromFile(name)
 		if err != nil {
 			log.Fatal(err)
 		}
@@ -24,7 +24,7 @@ type Aquarium struct {
 	zeitLetztesBild time.Time
 }
 
-func (aquarium *Aquarium) Update(*ebiten.Image) error {
+func (aquarium *Aquarium) Update() error {
 	vergangen := time.Since(aquarium.zeitLetztesBild)
 	for _, bildElement := range aquarium.figuren {
 		bildElement.ZeitVergangen(vergangen)
